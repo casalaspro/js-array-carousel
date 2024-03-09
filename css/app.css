@@ -67,3 +67,35 @@ img{
 .d-block{
   display: block;
 }
+
+/* .col-1-5{
+  min-width: calc( 100% / 5 );
+}
+
+.col-4-5{
+  min-width: calc( 100% / 5 * 4);
+} */
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tc-thumbnails{
+  position: relative;
+}
+
+.tc-thumbnails img{
+  width: 200px;
+  /* height: calc(600px / 5); */
+  height: 120px;
+}
+
+.thumb-light{
+  filter: none;
+}
+
+.thumb-dark{
+  filter: brightness(20%);
+}
+
