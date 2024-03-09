@@ -25,7 +25,8 @@
 
 img{
   height: 600px;
-  display: none;
+  display: block;
+  object-fit: cover;
 }
 
 .button{

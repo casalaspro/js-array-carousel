@@ -28,8 +28,19 @@ Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
 // MILESTONE 2
 // commento la parte di immagini da rendere dinamica
 // creo l'array con l'address delle varie immagini
+let addresses = ["./img/01.webp","./img/02.webp","./img/03.webp","./img/04.webp","./img/05.webp"];
+// <img class="picture" src="./img/02.webp" alt="">
 // creo elemento container
+const containerElement = document.querySelector(".carousel");
+console.dir(containerElement); /* test */
+// const pino = ["lillo", "gini", "lino", "rino"];
+// console.log(pino.length);
+// ciclo for per iniettare HTML con le immagini
+for(let index = 0 ; index<addresses.length ; index++){
+  containerElement.innerHTML += `<img class="picture" src="${addresses[index]}" alt="">`;
+  // console.log(addresses[index]);
+}
 // creo elemento buttone su
 // creo elemento bottone giù
-// ciclo for per iniettare HTML con le immagini
+
 // attribuisco l'event listener ai due bottoni
