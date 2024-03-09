@@ -52,8 +52,6 @@ allPicturesElement[0].classList.replace("d-none", "d-block");
 // creo un contatore per le immaigini visualizzate
 let counter = 0;
 
-console.log()
-
 downButtonElement.addEventListener("click", function(){
 if(counter === addresses.length -1){
   allPicturesElement[addresses.length-1].classList.replace("d-block", "d-none");
@@ -68,7 +66,19 @@ if(counter === addresses.length -1){
 }
 })
 
-
+upButtonElement.addEventListener("click", function(){
+  if(counter === 0){
+    allPicturesElement[0].classList.replace("d-block", "d-none");
+    allPicturesElement[addresses.length-1].classList.replace("d-none", "d-block");
+    counter = addresses.length-1;
+    // console.log("reset order");
+  }else{
+    allPicturesElement[counter].classList.replace("d-block", "d-none");
+    allPicturesElement[counter-1].classList.replace("d-none", "d-block");
+    counter--;
+    // console.log(`Il counter vale ${counter}.`);
+  }
+  })
 
 // console.dir(allPicturesElement);
 
