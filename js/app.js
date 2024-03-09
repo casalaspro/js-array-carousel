@@ -40,11 +40,36 @@ for(let index = 0 ; index<addresses.length ; index++){
   containerElement.innerHTML += `<img class="picture d-none" src="${addresses[index]}" alt="">`;
   // console.log(addresses[index]);
 }
+
 // creo elemento buttone su
 const upButtonElement = document.querySelector(".button_top");
 // creo elemento bottone giù
 const downButtonElement = document.querySelector(".button_down");
 const allPicturesElement = document.getElementsByClassName("picture");
-console.dir(allPicturesElement);
+
+// attribuisco la classe d-block alla prima immagine
+allPicturesElement[0].classList.replace("d-none", "d-block");
+// creo un contatore per le immaigini visualizzate
+let counter = 0;
+
+console.log()
+
+downButtonElement.addEventListener("click", function(){
+if(counter === addresses.length -1){
+  allPicturesElement[addresses.length-1].classList.replace("d-block", "d-none");
+  allPicturesElement[0].classList.replace("d-none", "d-block");
+  counter = 0;
+  // console.log("reset order");
+}else{
+  allPicturesElement[counter].classList.replace("d-block", "d-none");
+  allPicturesElement[counter+1].classList.replace("d-none", "d-block");
+  counter++;
+  // console.log(`Il counter vale ${counter}.`);
+}
+})
+
+
+
+// console.dir(allPicturesElement);
 
 // attribuisco l'event listener ai due bottoni
