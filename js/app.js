@@ -24,3 +24,12 @@ Consigli del giorno:
 Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
 
 */
+
+// MILESTONE 2
+// commento la parte di immagini da rendere dinamica
+// creo l'array con l'address delle varie immagini
+// creo elemento container
+// creo elemento buttone su
+// creo elemento bottone giù
+// ciclo for per iniettare HTML con le immagini
+// attribuisco l'event listener ai due bottoni
