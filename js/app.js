@@ -26,15 +26,14 @@ Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
 */
 
 // MILESTONE 2
+
 // commento la parte di immagini da rendere dinamica
 // creo l'array con l'address delle varie immagini
 let addresses = ["./img/01.webp","./img/02.webp","./img/03.webp","./img/04.webp","./img/05.webp"];
-// <img class="picture" src="./img/02.webp" alt="">
+
 // creo elemento container
 const containerElement = document.querySelector(".carousel");
-console.dir(containerElement); /* test */
-// const pino = ["lillo", "gini", "lino", "rino"];
-// console.log(pino.length);
+
 // ciclo for per iniettare HTML con le immagini
 for(let index = 0 ; index<addresses.length ; index++){
   containerElement.innerHTML += `<img class="picture d-none" src="${addresses[index]}" alt="">`;
@@ -45,41 +44,46 @@ for(let index = 0 ; index<addresses.length ; index++){
 const upButtonElement = document.querySelector(".button_top");
 // creo elemento bottone giù
 const downButtonElement = document.querySelector(".button_down");
+// creo array di elementi
 const allPicturesElement = document.getElementsByClassName("picture");
 
 // attribuisco la classe d-block alla prima immagine
 allPicturesElement[0].classList.replace("d-none", "d-block");
 // creo un contatore per le immaigini visualizzate
-let counter = 0;
+let counter = 0;  //integer number
 
+// attribuisco l'event listener ai due bottoni
 downButtonElement.addEventListener("click", function(){
-if(counter === addresses.length -1){
+if(counter === addresses.length -1){  //se si è alla fine dell'array
+  // tolgo la visibilità all'ultima
   allPicturesElement[addresses.length-1].classList.replace("d-block", "d-none");
+  // metto la visibilità alla prima
   allPicturesElement[0].classList.replace("d-none", "d-block");
   counter = 0;
   // console.log("reset order");
 }else{
   allPicturesElement[counter].classList.replace("d-block", "d-none");
   allPicturesElement[counter+1].classList.replace("d-none", "d-block");
-  counter++;
+  // aumento il counter
+  counter++; 
   // console.log(`Il counter vale ${counter}.`);
 }
 })
 
 upButtonElement.addEventListener("click", function(){
-  if(counter === 0){
+  if(counter === 0){  //se si è all'inizio dell'array
+    // tolgo la visibilità alla prima
     allPicturesElement[0].classList.replace("d-block", "d-none");
+    // metto la visibilità all'ultima
     allPicturesElement[addresses.length-1].classList.replace("d-none", "d-block");
     counter = addresses.length-1;
     // console.log("reset order");
   }else{
     allPicturesElement[counter].classList.replace("d-block", "d-none");
     allPicturesElement[counter-1].classList.replace("d-none", "d-block");
+    // riduco il counter
     counter--;
-    // console.log(`Il counter vale ${counter}.`);
   }
   })
 
-// console.dir(allPicturesElement);
 
-// attribuisco l'event listener ai due bottoni
