@@ -20,8 +20,36 @@
 
 .carousel{
   border: 1px solid black; /* debug */
+  position: relative;
 }
 
 img{
   height: 600px;
+  display: block;
+}
+
+.button{
+  width: 40px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position:absolute;
+  left: 50%;
+  right:50%;
+  background-color: rgba(255, 255, 255, 0.488);
+  transform: translateX(-50%);
+}
+
+.button:hover{
+  background-color: white;
+}
+
+.button_top{
+  top: 20px;
+}
+
+.button_down{
+  bottom: 20px;
 }
