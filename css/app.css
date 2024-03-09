@@ -18,7 +18,8 @@ body{
   height: 100vh;
   /*border: 1px solid black;  debug */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: end;
   align-items: center;
 }
 
@@ -78,7 +79,7 @@ img{
 
 .flex{
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .tc-thumbnails{

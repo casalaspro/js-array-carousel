@@ -32,13 +32,24 @@ Buon lavoro e buon divertimento! :faccia_leggermente_sorridente:
 let addresses = ["./img/01.webp","./img/02.webp","./img/03.webp","./img/04.webp","./img/05.webp"];
 
 // creo elemento container
-const containerElement = document.querySelector(".carousel");
+// const containerElement = document.querySelector(".carousel");
+
+const containerCarouselElement = document.querySelector(".tc-carousel");
+const containerThumbnailElement = document.querySelector(".tc-thumbnails");
 
 // ciclo for per iniettare HTML con le immagini
 for(let index = 0 ; index<addresses.length ; index++){
-  containerElement.innerHTML += `<img class="picture d-none" src="${addresses[index]}" alt="">`;
+  containerCarouselElement.innerHTML += `<img class="picture d-none" src="${addresses[index]}" alt="">`;
+  containerThumbnailElement.innerHTML += `<img class="thumbnail thumb-dark" src="${addresses[index]}" alt="">`;
   // console.log(addresses[index]);
 }
+
+// aggiungo i bottoni alla fine del codice html
+containerThumbnailElement.innerHTML +=
+`
+<div class="button button_top"><i class="fa-solid fa-arrow-up"></i></div>
+<div class="button button_down"><i class="fa-solid fa-arrow-down"></i></div>
+`;
 
 // creo elemento buttone su
 const upButtonElement = document.querySelector(".button_top");
@@ -46,9 +57,12 @@ const upButtonElement = document.querySelector(".button_top");
 const downButtonElement = document.querySelector(".button_down");
 // creo array di elementi
 const allPicturesElement = document.getElementsByClassName("picture");
+const allThumbnailsElement = document.getElementsByClassName("thumbnail");
 
 // attribuisco la classe d-block alla prima immagine
 allPicturesElement[0].classList.replace("d-none", "d-block");
+//attribuisco la classe thumb-light alla prima immagine
+allThumbnailsElement[0].classList.replace("thumb-dark", "thumb-light");
 // creo un contatore per le immaigini visualizzate
 let counter = 0;  //integer number
 
@@ -57,13 +71,17 @@ downButtonElement.addEventListener("click", function(){
 if(counter === addresses.length -1){  //se si è alla fine dell'array
   // tolgo la visibilità all'ultima
   allPicturesElement[addresses.length-1].classList.replace("d-block", "d-none");
+  allThumbnailsElement[addresses.length-1].classList.replace("thumb-light", "thumb-dark");
   // metto la visibilità alla prima
   allPicturesElement[0].classList.replace("d-none", "d-block");
+  allThumbnailsElement[0].classList.replace("thumb-dark", "thumb-light");
   counter = 0;
   // console.log("reset order");
 }else{
   allPicturesElement[counter].classList.replace("d-block", "d-none");
   allPicturesElement[counter+1].classList.replace("d-none", "d-block");
+  allThumbnailsElement[counter].classList.replace("thumb-light", "thumb-dark");
+  allThumbnailsElement[counter+1].classList.replace("thumb-dark", "thumb-light");
   // aumento il counter
   counter++; 
   // console.log(`Il counter vale ${counter}.`);
@@ -76,11 +94,16 @@ upButtonElement.addEventListener("click", function(){
     allPicturesElement[0].classList.replace("d-block", "d-none");
     // metto la visibilità all'ultima
     allPicturesElement[addresses.length-1].classList.replace("d-none", "d-block");
+    allThumbnailsElement[0].classList.replace("thumb-light", "thumb-dark");
+    allThumbnailsElement[addresses.length-1].classList.replace("thumb-dark", "thumb-light");
+
     counter = addresses.length-1;
     // console.log("reset order");
   }else{
     allPicturesElement[counter].classList.replace("d-block", "d-none");
     allPicturesElement[counter-1].classList.replace("d-none", "d-block");
+    allThumbnailsElement[counter].classList.replace("thumb-light", "thumb-dark");
+    allThumbnailsElement[counter-1].classList.replace("thumb-dark", "thumb-light");
     // riduco il counter
     counter--;
   }
