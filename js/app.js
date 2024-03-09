@@ -37,10 +37,14 @@ console.dir(containerElement); /* test */
 // console.log(pino.length);
 // ciclo for per iniettare HTML con le immagini
 for(let index = 0 ; index<addresses.length ; index++){
-  containerElement.innerHTML += `<img class="picture" src="${addresses[index]}" alt="">`;
+  containerElement.innerHTML += `<img class="picture d-none" src="${addresses[index]}" alt="">`;
   // console.log(addresses[index]);
 }
 // creo elemento buttone su
+const upButtonElement = document.querySelector(".button_top");
 // creo elemento bottone giù
+const downButtonElement = document.querySelector(".button_down");
+const allPicturesElement = document.getElementsByClassName("picture");
+console.dir(allPicturesElement);
 
 // attribuisco l'event listener ai due bottoni

@@ -54,3 +54,11 @@ img{
 .button_down{
   bottom: 20px;
 }
+
+.d-none{
+  display: none;
+}
+
+.d-block{
+  display: block;
+}
